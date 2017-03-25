@@ -9,7 +9,8 @@ CREATE TABLE films (
 
 CREATE TABLE customers (
   id SERIAL4 PRIMARY KEY,
-  name VARCHAR(255)
+  name VARCHAR(255),
+  funds INT4
 );
 
 CREATE TABLE tickets (
