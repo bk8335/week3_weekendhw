@@ -28,6 +28,10 @@ class Film
     return result
   end
 
+  def attendance()
+    return customers.length
+  end
+
   def self.all
     sql = "SELECT * FROM films"
     film_list = SqlRunner.run(sql)

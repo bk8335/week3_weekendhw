@@ -7,8 +7,8 @@ Ticket.delete_all
 Customer.delete_all
 Film.delete_all
 
-customer1 = Customer.new({'name' => 'Ben Kinnard', 'funds' => 50})
-customer2 = Customer.new({'name' => 'Max', 'funds' => 120})
+customer1 = Customer.new({'name' => 'Ben Kinnard', 'funds' => 50.49})
+customer2 = Customer.new({'name' => 'Max', 'funds' => 120.86})
 
 customer1.save()
 customer2.save()
@@ -21,10 +21,10 @@ film1.save
 film2.save
 film3.save
 
-ticket1 = Ticket.new({'customer_id' => customer1.id, 'film_id' => film1.id })
-ticket2 = Ticket.new({'customer_id' => customer1.id, 'film_id' => film2.id })
-ticket3 = Ticket.new({'customer_id' => customer2.id, 'film_id' => film3.id })
-ticket4 = Ticket.new({'customer_id' => customer2.id, 'film_id' => film2.id })
+ticket1 = Ticket.new({'customer_id' => customer1.id, 'film_id' => film1.id, 'ticket_price' => 5 })
+ticket2 = Ticket.new({'customer_id' => customer1.id, 'film_id' => film2.id, 'ticket_price' => 12 })
+ticket3 = Ticket.new({'customer_id' => customer2.id, 'film_id' => film3.id, 'ticket_price' => 10 })
+ticket4 = Ticket.new({'customer_id' => customer2.id, 'film_id' => film2.id, 'ticket_price' => 8 })
 
 ticket1.save()
 ticket2.save()
@@ -38,10 +38,15 @@ film2.name = "Kong: Skull Island"
 film2.update
 
 customer1.name = "Ben"
+customer1.funds -= ticket1.ticket_price
 customer1.update
 
-ticket1.customer
-ticket1.film
+customer1.tickets_bought
+customer2.tickets_bought
+
+film1.attendance
+film2.attendance
+film3.attendance
 
 binding.pry
 return nil

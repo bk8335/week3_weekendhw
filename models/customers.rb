@@ -30,6 +30,10 @@ class Customer
     return result
   end
 
+  def tickets_bought()
+    return films.length
+  end
+
   def self.all()
     sql = "SELECT * FROM customers"
     customer_list = SqlRunner.run(sql)
@@ -42,5 +46,6 @@ class Customer
     result = SqlRunner.run(sql)
     return result
   end
+
 
 end
