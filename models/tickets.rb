@@ -1,5 +1,7 @@
 require_relative('../db/sql_runner')
 
+# The combined table doesn't require an update method because the information in it will be updated by the other tables right?
+
 class Ticket
 
   attr_reader :id

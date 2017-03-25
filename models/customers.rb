@@ -3,6 +3,7 @@ require_relative('../db/sql_runner')
 class Customer
 
   attr_reader :id
+  attr_accessor :name
 
   def initialize(options)
     @id = options['id'].to_i
@@ -13,6 +14,12 @@ class Customer
     sql = "INSERT INTO customers (name) VALUES ('#{@name}') RETURNING *"
     customer = SqlRunner.run(sql).first
     @id = customer['id'].to_i
+  end
+
+  def update()
+    sql = "UPDATE customers SET (name) = ('#{@name}') WHERE id = #{@id}"
+    result = SqlRunner.run(sql)
+    return result
   end
 
   def self.all()

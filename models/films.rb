@@ -3,6 +3,7 @@ require_relative('../db/sql_runner')
 class Film
 
   attr_reader :id
+  attr_accessor :name
 
   def initialize(options)
     @id = options['id'].to_i
@@ -13,6 +14,11 @@ class Film
     sql = "INSERT INTO films (name) VALUES ('#{@name}') RETURNING *"
     film = SqlRunner.run(sql).first
     @id = film['id'].to_i
+  end
+
+  def update()
+    sql = "UPDATE films SET (name) = ('#{@name}') WHERE id = #{@id}"
+    result = SqlRunner.run(sql).first
   end
 
   def self.all
