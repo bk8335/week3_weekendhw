@@ -3,9 +3,9 @@ require_relative('models/customers')
 require_relative('models/films')
 require_relative('models/tickets')
 
-# Ticket.delete_all
-# Customer.delete_all
-# Film.delete_all
+Ticket.delete_all
+Customer.delete_all
+Film.delete_all
 
 customer1 = Customer.new({'name' => 'Ben Kinnard'})
 customer1.save()

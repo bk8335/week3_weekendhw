@@ -18,10 +18,14 @@ class Film
   def self.all
     sql = "SELECT * FROM films"
     film_list = SqlRunner.run(sql)
-    result = film_list.map {|film_list| Film.new(film_list) }
+    result = film_list.map {|film| Film.new(film) }
     return result
   end
 
-  
+  def self.delete_all()
+    sql = "DELETE FROM films"
+    result = SqlRunner.run(sql)
+    return result
+  end
 
 end
