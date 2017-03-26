@@ -23,6 +23,12 @@ class Customer
     return result
   end
 
+  # def update_funds()
+  #   sql = "SELECT customers.funds SET (funds) = (customers INNER JOIN tickets ON customers.funds = customers.funds - tickets.price WHERE tickets.customer_id = #{@id}" 
+  #   updated_funds = SqlRunner.run(sql)
+  #   return updated_funds 
+  # end
+
   def films()
     sql = "SELECT films.* FROM films INNER JOIN tickets ON tickets.film_id = films.id WHERE tickets.customer_id = #{@id}"
     film_list = SqlRunner.run(sql)

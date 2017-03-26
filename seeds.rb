@@ -25,6 +25,25 @@ ticket1 = Ticket.new({'customer_id' => customer1.id, 'film_id' => film1.id, 'tic
 ticket2 = Ticket.new({'customer_id' => customer1.id, 'film_id' => film2.id, 'ticket_price' => 12 })
 ticket3 = Ticket.new({'customer_id' => customer2.id, 'film_id' => film3.id, 'ticket_price' => 10 })
 ticket4 = Ticket.new({'customer_id' => customer2.id, 'film_id' => film2.id, 'ticket_price' => 8 })
+tickets = [ticket1, ticket2, ticket3, ticket4]
+
+
+takings = 0
+for ticket in tickets
+  takings += ticket.ticket_price
+end
+takings
+
+
+# def cinema_takings(tickets)
+#   revenue = 0
+#   for ticket in tickets
+#     revenue += ticket.ticket_price
+#     return revenue
+#   end
+# end
+
+# cinema_takings(tickets)
 
 ticket1.save()
 ticket2.save()
